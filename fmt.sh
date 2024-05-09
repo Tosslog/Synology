@@ -45,11 +45,11 @@ df -h | awk 'NR>1 {print $1, $6}' | while read -r line; do
 
         # 根据温度设置颜色和信息
         if (( temperature < 50 )); then
-            echo -e "$filesystem | $mounted | $temperature° | \033[1;32mNormal temperature range\033[0m"
+            echo -e "$filesystem | $mounted | $temperature°C | \033[1;32mNormal temperature range\033[0m"
         elif (( temperature >= 50 && temperature < 60 )); then
-            echo -e "$filesystem | $mounted | $temperature° | \033[1;33mHigh temperature, may affect hard disk life\033[0m"
+            echo -e "$filesystem | $mounted | $temperature°C | \033[1;33mHigh temperature, may affect hard disk life\033[0m"
         else
-            echo -e "$filesystem | $mounted | $temperature° | \033[1;31mExtreme temperature, risk of hard disk damage\033[0m"
+            echo -e "$filesystem | $mounted | $temperature°C | \033[1;31mExtreme temperature, risk of hard disk damage\033[0m"
         fi
     fi
 done
